@@ -28,7 +28,7 @@ func CreateFileWithContent(name, content string) error {
 
 func CreateDir(name string) error {
 
-	return os.Mkdir(name, dirMode)
+	return os.MkdirAll(name, dirMode)
 }
 
 func CreateSoftLink(oldname, newname string) error {

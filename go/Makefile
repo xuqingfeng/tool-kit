@@ -3,3 +3,6 @@ test:
 
 fmt:
 	go fmt ./...
+
+build: fmt
+	go build -o out/wcl cmd/wcl/main.go
