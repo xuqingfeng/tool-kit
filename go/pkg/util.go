@@ -35,3 +35,13 @@ func CreateSoftLink(oldname, newname string) error {
 
 	return os.Symlink(oldname, newname)
 }
+
+func IsDir(dir string) (bool, error) {
+
+	d, err := os.Stat(dir)
+	if err != nil {
+		return false, err
+	}
+
+	return d.IsDir(), nil
+}

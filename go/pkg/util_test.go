@@ -100,3 +100,14 @@ func TestCreateSoftLink(t *testing.T) {
 		os.Remove(testLink)
 	}()
 }
+
+func TestIsDir(t *testing.T) {
+
+	b, err := IsDir(test_data)
+	if err != nil {
+		t.Fatalf("E! IsDir failed: %v", err)
+	}
+	if !b {
+		t.Fatalf("E! %s is dir", test_data)
+	}
+}

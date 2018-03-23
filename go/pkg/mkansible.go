@@ -1,6 +1,9 @@
 package pkg
 
-import "path"
+import (
+	"errors"
+	"path"
+)
 
 var (
 	ansiblecfg = `[ssh_connection]
@@ -41,6 +44,14 @@ retry_files_enabled = False
 )
 
 func Mkansible(p string) (err error) {
+
+	b, err := IsDir(p)
+	if err != nil {
+		return err
+	}
+	if !b {
+		return errors.New(p + " is not a directory")
+	}
 
 	files := []string{"inventory", "requirements.yml"}
 	filesWithContent := map[string]string{
