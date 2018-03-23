@@ -10,8 +10,8 @@ import (
 )
 
 var (
-	mkansiblePath  string
-	randompassSize int
+	mkansiblePath    string
+	randompassLength int
 )
 
 const (
@@ -28,10 +28,10 @@ func main() {
 	mkansibleCmd.StringVar(&mkansiblePath, "path", ".", "where to generate ansible scaffold")
 
 	randompassCmd := flag.NewFlagSet(randompass, flag.ExitOnError)
-	randompassCmd.IntVar(&randompassSize, "n", 10, "how many letters you want")
+	randompassCmd.IntVar(&randompassLength, "length", 10, "how many letters you want")
 
 	if len(os.Args) == 1 {
-		// not subcommand
+		// no subcommand
 		usage()
 		os.Exit(1)
 	}
@@ -49,7 +49,8 @@ func main() {
 		if err := randompassCmd.Parse(os.Args[2:]); err != nil {
 			log.Fatalf("E! parse flag set failed: %v", err)
 		}
-		// TODO
+		pass := pkg.RandomPass(randompassLength)
+		fmt.Printf("%s\n", pass)
 	case versionFlag:
 		fmt.Printf("%s\n", version)
 	case helpFlag:
