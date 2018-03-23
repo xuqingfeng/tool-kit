@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	"bitbucket.org/jsxqf/tool-kit/go/pkg"
+	"github.com/xuqingfeng/tool-kit/go/pkg"
 )
 
 var (
