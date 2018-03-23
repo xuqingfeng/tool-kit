@@ -15,8 +15,11 @@ var (
 )
 
 const (
-	mkansible  = "mkansible"
-	randompass = "randompass"
+	version     = "v0.0.1"
+	versionFlag = "-v"
+	helpFlag    = "-h"
+	mkansible   = "mkansible"
+	randompass  = "randompass"
 )
 
 func main() {
@@ -42,12 +45,15 @@ func main() {
 			log.Fatalf("E! mkansible failed: %v", err)
 
 		}
-
 	case randompass:
 		if err := randompassCmd.Parse(os.Args[2:]); err != nil {
 			log.Fatalf("E! parse flag set failed: %v", err)
 		}
 		// TODO
+	case versionFlag:
+		fmt.Printf("%s\n", version)
+	case helpFlag:
+		usage()
 	default:
 		flag.PrintDefaults()
 	}
@@ -61,5 +67,5 @@ Usage : wcl [command] [args]
 
 Use wcl [command] -h to get more details
 `
-	fmt.Printf("%s", msg)
+	fmt.Printf("%s\n", msg)
 }
