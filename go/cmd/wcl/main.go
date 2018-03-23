@@ -10,12 +10,12 @@ import (
 )
 
 var (
+	version          string
 	mkansiblePath    string
 	randompassLength int
 )
 
 const (
-	version     = "master"
 	versionFlag = "-v"
 	helpFlag    = "-h"
 	mkansible   = "mkansible"
