@@ -1,3 +1,22 @@
+builds:
+  # You can have multiple builds defined as a yaml list
+  -
+    # Path to main.go file or main package.
+    # Default is `.`.
+    main: ./cmd/wcl/main.go
+
+    # Name of the binary.
+    # This is parsed with the Go template engine and the following variables
+    # are available:
+    # - Date
+    # - Commit
+    # - Tag
+    # - Version (Git tag without `v` prefix)
+    # Date format is `2006-01-02_15:04:05`.
+    # Default is the name of the project directory.
+    binary: wcl
+
+
 brew:
   # Name of the recipe
   # Default to project name
