@@ -16,6 +16,8 @@ builds:
     # Default is the name of the project directory.
     binary: wcl
 
+    ldflags: -s -w -X main.build={{.Version}}
+
 
 brew:
   # Name of the recipe

@@ -15,7 +15,7 @@ var (
 )
 
 const (
-	version     = "v0.0.2"
+	version     = "master"
 	versionFlag = "-v"
 	helpFlag    = "-h"
 	mkansible   = "mkansible"
