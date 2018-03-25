@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	version          string
+	version          = "master"
 	mkansiblePath    string
 	randompassLength int
 )
